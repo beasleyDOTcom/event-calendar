@@ -20,7 +20,7 @@ function Show({arrayOfShows}: AppProps){
 
     function showDetails (singleEvent: SinglePerformance): React.ReactElement {
         return(
-            <div>
+            <div key={singleEvent.ID}>
                 <img src={singleEvent.image}/>
                 <ul>
                     <li>{singleEvent.dateTime}</li>
