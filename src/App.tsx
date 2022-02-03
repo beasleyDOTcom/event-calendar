@@ -22,18 +22,20 @@ function App() {
 
   const [shows, setShows] = useState([]);
   
+  
   const fetchSeedData = async () => {
-    const url = "http://localhost:3003/api/v2/getSeedData?username=thedebbiemiller";
-    const response = await axios.get(url);
-    if ( response.data.newUser ) {
-      console.log("TRUE this is RESULTS: " + response);
-      setShows(response.data);
-    } else {
-      console.log("FALSE this is RESULTS: " + response);
-      setShows(response.data);
-      const update = await axios.get("http://localhost:3003/api/v2/getLatestResults?username=thedebbiemiller");
-      setShows(update.data);
-    }
+    
+    const seedUrl = "http://localhost:3003/api/v2/getSeedData?username=beasleydotcom";
+    const updateUrl = "http://localhost:3003/api/v2/getLatestResults?username=beasleydotcom";
+    
+    const seed = await axios.get(seedUrl);
+    
+    setShows(seed.data);
+
+    const update = await axios.get(updateUrl);
+    
+    setShows(update.data);
+
   }
   useEffect(() => {
     fetchSeedData();

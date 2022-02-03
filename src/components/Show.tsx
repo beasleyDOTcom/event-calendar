@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { useState, useEffect } from 'react';
 
 interface SinglePerformance {
   "ID": string,
@@ -17,9 +16,17 @@ interface AppProps {
 }
 
 function Show({arrayOfShows}: AppProps){
+    let arrayInReverse: SinglePerformance[] = [];
+
+    for( let i = arrayOfShows.length - 1; i >= 0; i--){
+
+        arrayInReverse.push(arrayOfShows[i]);
+
+    }
 
     function showDetails (singleEvent: SinglePerformance): React.ReactElement {
         return(
+
             <div key={singleEvent.ID}>
                 <img src={singleEvent.image}/>
                 <ul>
@@ -33,7 +40,7 @@ function Show({arrayOfShows}: AppProps){
     return (
         <>
             {
-            arrayOfShows.map(showDetails)
+                arrayInReverse.map(showDetails)
             }
         </>
     )
