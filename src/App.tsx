@@ -25,8 +25,8 @@ function App() {
   
   const fetchSeedData = async () => {
     
-    const seedUrl = "http://localhost:3003/api/v2/getSeedData?username=beasleydotcom";
-    const updateUrl = "http://localhost:3003/api/v2/getLatestResults?username=beasleydotcom";
+    const seedUrl = "https://facebook-event-scraper.herokuapp.com/api/v2/getSeedData?username=beasleydotcom";
+    const updateUrl = "https://facebook-event-scraper.herokuapp.com/api/v2/getLatestResults?username=beasleydotcom";
     
     const seed = await axios.get(seedUrl);
     
